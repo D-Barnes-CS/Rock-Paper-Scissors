@@ -35,10 +35,10 @@ class MainActivity : AppCompatActivity() {
         computerChoice = findViewById(R.id.computerChoice)
         results = findViewById(R.id.results)
 
-        val imgBtnRock = findViewById<ImageButton>(R.id.imgBtnRock)
-        val imgBtnPaper = findViewById<ImageButton>(R.id.imgBtnPaper)
-        val imgBtnScissors = findViewById<ImageButton>(R.id.imgBtnScissors)
-        val btnReset = findViewById<Button>(R.id.btnReset)
+        imgBtnRock = findViewById<ImageButton>(R.id.imgBtnRock)
+        imgBtnPaper = findViewById<ImageButton>(R.id.imgBtnPaper)
+        imgBtnScissors = findViewById<ImageButton>(R.id.imgBtnScissors)
+        btnReset = findViewById<Button>(R.id.btnReset)
 
         playerScore = findViewById<TextView>(R.id.playerScore)
         compScore = findViewById<TextView>(R.id.compScore)
