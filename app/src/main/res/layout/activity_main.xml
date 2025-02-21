@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center">
+
+    <!-- Title -->
+
+    <!-- Player and Computer Choices -->
+
+    <!-- Result Display -->
+
+    <!-- Buttons for Rock, Paper, Scissors -->
+
+
+    <TextView
+        android:id="@+id/rockpaperscissorsTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="@string/rock_paper_scissors"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/playerChoice"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="108dp"
+        android:src="@drawable/ic_launcher_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rockpaperscissorsTitle" />
+
+    <ImageView
+        android:id="@+id/computerChoice"
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:layout_marginTop="45dp"
+        android:src="@drawable/ic_launcher_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/playerChoice" />
+
+    <TextView
+        android:id="@+id/results"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:text="@string/rock_paper_or_scissors"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/computerChoice" />
+
+    <Button
+        android:id="@+id/btnPaper"
+        android:layout_width="120dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="150dp"
+        android:layout_marginEnd="5dp"
+        android:text="@string/paper"
+        app:layout_constraintEnd_toStartOf="@+id/btnScissors"
+        app:layout_constraintStart_toEndOf="@+id/btnRock"
+        app:layout_constraintTop_toBottomOf="@+id/computerChoice" />
+
+    <Button
+        android:id="@+id/btnRock"
+        android:layout_width="120dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="5dp"
+        android:text="@string/rock"
+        app:iconPadding="20dp"
+        app:layout_constraintBottom_toBottomOf="@+id/btnPaper"
+        app:layout_constraintEnd_toStartOf="@+id/btnPaper"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btnPaper" />
+
+    <Button
+        android:id="@+id/btnScissors"
+        android:layout_width="120dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="50dp"
+        android:text="@string/scissors"
+        app:layout_constraintBottom_toBottomOf="@+id/btnPaper"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnPaper"
+        app:layout_constraintTop_toTopOf="@+id/btnPaper" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
