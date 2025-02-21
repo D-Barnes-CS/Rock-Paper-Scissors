@@ -20,6 +20,9 @@ class MainActivity : AppCompatActivity() {
     private lateinit var imgBtnScissors: ImageButton
     private lateinit var btnReset: Button
 
+    private lateinit var playerScore: TextView
+    private lateinit var compScore: TextView
+
     private var userScore: Int = 0
     private var computerScore: Int = 0
 
@@ -36,6 +39,9 @@ class MainActivity : AppCompatActivity() {
         val imgBtnPaper = findViewById<ImageButton>(R.id.imgBtnPaper)
         val imgBtnScissors = findViewById<ImageButton>(R.id.imgBtnScissors)
         val btnReset = findViewById<Button>(R.id.btnReset)
+
+        playerScore = findViewById<TextView>(R.id.playerScore)
+        compScore = findViewById<TextView>(R.id.compScore)
 
         imgBtnRock.setOnClickListener { play("rock") }
         imgBtnPaper.setOnClickListener { play("paper") }
@@ -76,10 +82,12 @@ class MainActivity : AppCompatActivity() {
             (playerMove == "scissors" && computerMove == "paper") ||
             (playerMove == "paper" && computerMove == "rock")) {
             userScore++
+            playerScore.text = "Player Score = $userScore"
             "You Win!"
 
         } else {
             computerScore++
+            compScore.text = "Computer Score = $computerScore"
             "You Lose!"
         }
     }
@@ -103,12 +111,16 @@ class MainActivity : AppCompatActivity() {
         userScore = 0
         computerScore = 0
 
+        playerScore.text = "Player Score = 0"
+        compScore.text = "Computer Score = 0"
+
         imgBtnRock.isEnabled = true
         imgBtnPaper.isEnabled = true
         imgBtnScissors.isEnabled = true
 
         playerChoice.setImageResource(R.drawable.ic_launcher_background)
         computerChoice.setImageResource(R.drawable.ic_launcher_background)
+        results.text = "Rock, Paper, or Scissors!"
 
         btnReset.visibility = View.GONE
     }
