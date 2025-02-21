@@ -15,9 +15,9 @@ class MainActivity : AppCompatActivity() {
     private lateinit var computerChoice: ImageView
     private lateinit var results: TextView
 
-    private lateinit var imgBtnRock: Button
-    private lateinit var imgBtnPaper: Button
-    private lateinit var imgBtnScissors: Button
+    private lateinit var imgBtnRock: ImageButton
+    private lateinit var imgBtnPaper: ImageButton
+    private lateinit var imgBtnScissors: ImageButton
     private lateinit var btnReset: Button
 
     private var userScore: Int = 0
@@ -32,13 +32,14 @@ class MainActivity : AppCompatActivity() {
         computerChoice = findViewById(R.id.computerChoice)
         results = findViewById(R.id.results)
 
-        val btnRock = findViewById<ImageButton>(R.id.imgBtnRock)
-        val btnPaper = findViewById<ImageButton>(R.id.imgBtnPaper)
-        val btnScissors = findViewById<ImageButton>(R.id.imgBtnScissors)
+        val imgBtnRock = findViewById<ImageButton>(R.id.imgBtnRock)
+        val imgBtnPaper = findViewById<ImageButton>(R.id.imgBtnPaper)
+        val imgBtnScissors = findViewById<ImageButton>(R.id.imgBtnScissors)
+        val btnReset = findViewById<Button>(R.id.btnReset)
 
-        btnRock.setOnClickListener { play("rock") }
-        btnPaper.setOnClickListener { play("paper") }
-        btnScissors.setOnClickListener { play("scissors") }
+        imgBtnRock.setOnClickListener { play("rock") }
+        imgBtnPaper.setOnClickListener { play("paper") }
+        imgBtnScissors.setOnClickListener { play("scissors") }
         btnReset.setOnClickListener {reset()}
 
         btnReset.visibility = View.GONE
@@ -106,13 +107,14 @@ class MainActivity : AppCompatActivity() {
         imgBtnPaper.isEnabled = true
         imgBtnScissors.isEnabled = true
 
-        btnReset.visibility = View.GONE
+        playerChoice.setImageResource(R.drawable.ic_launcher_background)
+        computerChoice.setImageResource(R.drawable.ic_launcher_background)
 
+        btnReset.visibility = View.GONE
     }
     /*reset button
     counter for wins for computer and player
     disable (rock/paper/scissor) after game end
     visible reset button during game (false)
      */
-
 }
