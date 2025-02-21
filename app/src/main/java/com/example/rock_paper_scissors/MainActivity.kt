@@ -124,9 +124,4 @@ class MainActivity : AppCompatActivity() {
 
         btnReset.visibility = View.GONE
     }
-    /*reset button
-    counter for wins for computer and player
-    disable (rock/paper/scissor) after game end
-    visible reset button during game (false)
-     */
 }
