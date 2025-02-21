@@ -1,7 +1,9 @@
 package com.example.rock_paper_scissors
 
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -13,6 +15,15 @@ class MainActivity : AppCompatActivity() {
     private lateinit var computerChoice: ImageView
     private lateinit var results: TextView
 
+    private lateinit var imgBtnRock: Button
+    private lateinit var imgBtnPaper: Button
+    private lateinit var imgBtnScissors: Button
+    private lateinit var btnReset: Button
+
+    private var userScore: Int = 0
+    private var computerScore: Int = 0
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -21,13 +32,16 @@ class MainActivity : AppCompatActivity() {
         computerChoice = findViewById(R.id.computerChoice)
         results = findViewById(R.id.results)
 
-        val btnRock = findViewById<Button>(R.id.btnRock)
-        val btnPaper = findViewById<Button>(R.id.btnPaper)
-        val btnScissors = findViewById<Button>(R.id.btnScissors)
+        val btnRock = findViewById<ImageButton>(R.id.imgBtnRock)
+        val btnPaper = findViewById<ImageButton>(R.id.imgBtnPaper)
+        val btnScissors = findViewById<ImageButton>(R.id.imgBtnScissors)
 
         btnRock.setOnClickListener { play("rock") }
         btnPaper.setOnClickListener { play("paper") }
         btnScissors.setOnClickListener { play("scissors") }
+        btnReset.setOnClickListener {reset()}
+
+        btnReset.visibility = View.GONE
     }
 
     private fun play(playerMove: String) {
@@ -41,6 +55,8 @@ class MainActivity : AppCompatActivity() {
 
         val result = winner(playerMove, computerMove)
         results.text = result
+
+        checkWinner()
     }
 
     private fun getImages(choice: String): Int {
@@ -58,10 +74,40 @@ class MainActivity : AppCompatActivity() {
         } else if ((playerMove == "rock" && computerMove == "scissors") ||
             (playerMove == "scissors" && computerMove == "paper") ||
             (playerMove == "paper" && computerMove == "rock")) {
+            userScore++
             "You Win!"
+
         } else {
+            computerScore++
             "You Lose!"
         }
+    }
+
+    private fun checkWinner() {
+        if (userScore == 10 || computerScore == 10) {
+            results.text = if (userScore == 10) {
+                "Great job, you beat the computer!"
+            } else {
+                "Sorry, the computer got the better of you."
+            }
+            imgBtnRock.isEnabled = false
+            imgBtnPaper.isEnabled = false
+            imgBtnScissors.isEnabled = false
+
+            btnReset.visibility = View.VISIBLE
+        }
+    }
+
+    private fun reset() {
+        userScore = 0
+        computerScore = 0
+
+        imgBtnRock.isEnabled = true
+        imgBtnPaper.isEnabled = true
+        imgBtnScissors.isEnabled = true
+
+        btnReset.visibility = View.GONE
+
     }
     /*reset button
     counter for wins for computer and player

@@ -7,15 +7,6 @@
     android:layout_height="match_parent"
     android:gravity="center">
 
-    <!-- Title -->
-
-    <!-- Player and Computer Choices -->
-
-    <!-- Result Display -->
-
-    <!-- Buttons for Rock, Paper, Scissors -->
-
-
     <TextView
         android:id="@+id/rockpaperscissorsTitle"
         android:layout_width="wrap_content"
@@ -60,42 +51,51 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/computerChoice" />
 
-    <Button
-        android:id="@+id/btnPaper"
-        android:layout_width="120dp"
-        android:layout_height="75dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="150dp"
-        android:layout_marginEnd="5dp"
-        android:text="@string/paper"
-        app:layout_constraintEnd_toStartOf="@+id/btnScissors"
-        app:layout_constraintStart_toEndOf="@+id/btnRock"
-        app:layout_constraintTop_toBottomOf="@+id/computerChoice" />
 
-    <Button
-        android:id="@+id/btnRock"
-        android:layout_width="120dp"
-        android:layout_height="75dp"
+    <ImageButton
+        android:id="@+id/imgBtnRock"
+        android:layout_width="118dp"
+        android:layout_height="124dp"
         android:layout_marginStart="50dp"
-        android:layout_marginEnd="5dp"
-        android:text="@string/rock"
-        app:iconPadding="20dp"
-        app:layout_constraintBottom_toBottomOf="@+id/btnPaper"
-        app:layout_constraintEnd_toStartOf="@+id/btnPaper"
+        android:layout_marginEnd="15dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imgBtnPaper"
+        app:layout_constraintEnd_toStartOf="@+id/imgBtnPaper"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/btnPaper" />
+        app:layout_constraintTop_toTopOf="@+id/imgBtnPaper"
+        app:srcCompat="@drawable/rock" />
+
+    <ImageButton
+        android:id="@+id/imgBtnPaper"
+        android:layout_width="118dp"
+        android:layout_height="124dp"
+        android:layout_marginTop="25dp"
+        app:layout_constraintEnd_toStartOf="@+id/imgBtnScissors"
+        app:layout_constraintStart_toEndOf="@+id/imgBtnRock"
+        app:layout_constraintTop_toBottomOf="@+id/results"
+        app:srcCompat="@drawable/paper" />
+
+    <ImageButton
+        android:id="@+id/imgBtnScissors"
+        android:layout_width="118dp"
+        android:layout_height="124dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="50dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imgBtnPaper"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imgBtnPaper"
+        app:layout_constraintTop_toTopOf="@+id/imgBtnPaper"
+        app:srcCompat="@drawable/scissors" />
 
     <Button
-        android:id="@+id/btnScissors"
-        android:layout_width="120dp"
-        android:layout_height="75dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginEnd="50dp"
-        android:text="@string/scissors"
-        app:layout_constraintBottom_toBottomOf="@+id/btnPaper"
+        android:id="@+id/btnReset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="310dp"
+        android:layout_marginEnd="13dp"
+        android:text="Reset"
+        app:layout_constraintBottom_toTopOf="@+id/rockpaperscissorsTitle"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btnPaper"
-        app:layout_constraintTop_toTopOf="@+id/btnPaper" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
